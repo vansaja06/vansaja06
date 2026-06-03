@@ -1,8 +1,8 @@
 <div align="center">
 
-# ev_vaj
+# 𝙚𝙫_𝙫𝙖𝙟
 
-![Vansaja06](img/github-header-banner.png)
+![Banner](img/github-header-banner.png)
 
 ### Backend Developer • Cloud Enthusiast • System Builder
 
@@ -10,8 +10,8 @@
 
 <br>
 
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/USERNAME_KAMU)
-[![GitHub](https://img.shields.io/badge/GitHub-121212?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ev-vaj)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/USERNAME_INSTAGRAM)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/vansaja06)
 
 </div>
 
@@ -23,17 +23,23 @@
 Name: Evan Raoul Rahman
 Username: ev_vaj
 Role: Backend Developer
-Education: SMK Software Engineering
+
+Education:
+  - Software Engineering Student
+
 Focus:
   - Backend Development
   - Cloud Computing
   - System Architecture
   - Database Design
-  - REST API
-Current Learning:
+  - REST API Development
+
+Currently Learning:
   - AWS
-  - Java Spring
+  - Java Spring Boot
   - React Native
+  - DevOps Fundamentals
+
 Goal:
   - Build scalable systems
   - Become a professional backend engineer
@@ -41,17 +47,17 @@ Goal:
 
 ---
 
-## ⚙ Tech Arsenal
+## ⚙ Tech Stack
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=java,spring,nodejs,react,reactivex,mysql,postgres,mongodb,aws,docker,git,github,vscode,linux" />
+<img src="https://skillicons.dev/icons?i=java,spring,nodejs,react,mysql,postgres,mongodb,aws,docker,git,github,vscode,linux" />
 
 </div>
 
 ---
 
-## ☁ Cloud & DevOps
+## ☁ Cloud & Infrastructure
 
 <div align="center">
 
@@ -64,40 +70,34 @@ Goal:
 ## 🚀 Featured Projects
 
 ### 🎓 Online Examination System
-Full-stack examination platform with:
-- User Authentication
-- Question Bank
-- Exam Sessions
-- Real-time Scoring
-- Result Management
+
+A web-based examination platform featuring:
+
+- Authentication & Authorization
+- Question Bank Management
+- Real-time Examination
+- Automatic Scoring
+- Result Analytics
 
 ### ☁ AWS Cloud Infrastructure
-Deployment using:
-- EC2
+
+Hands-on experience with:
+
+- Amazon EC2
 - Auto Scaling Group
-- Load Balancer
-- CloudWatch
-- RDS
-- S3
+- Application Load Balancer
+- Amazon RDS
+- Amazon S3
+- CloudWatch Monitoring
 
 ### 💬 Discussion Forum System
-Built with:
-- Role Management
+
+Features include:
+
 - Questions & Answers
-- Rating System
-- Moderation Features
-
----
-
-## 📊 GitHub Stats
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ev-vaj&show_icons=true&theme=tokyonight)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ev-vaj&layout=compact&theme=tokyonight)
-
-</div>
+- User Rating System
+- Content Moderation
+- Role-Based Access Control
 
 ---
 
@@ -111,20 +111,26 @@ Built with:
 
 ---
 
-## 🌙 Quote
+## 🌙 Philosophy
 
 > "Good software is built twice:
+>
 > once in the mind,
+>
 > and once in code."
 
 ---
 
 <div align="center">
 
-### Connect With Me
+## 📫 Connect With Me
 
-<a href="https://instagram.com/USERNAME_KAMU">
-<img src="https://skillicons.dev/icons?i=instagram" />
+<a href="https://instagram.com/ev_vaj">
+  <img src="https://skillicons.dev/icons?i=instagram" />
+</a>
+
+<a href="https://github.com/vansaja06">
+  <img src="https://skillicons.dev/icons?i=github" />
 </a>
 
 </div>
