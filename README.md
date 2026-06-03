@@ -2,7 +2,7 @@
 
 # 𝙚𝙫_𝙫𝙖𝙟
 
-![Banner](img/github-header-banner.png)
+![Banner](img/Screenshot%202026-06-03%20125548.png)
 
 ### Backend Developer • Cloud Enthusiast • System Builder
 
