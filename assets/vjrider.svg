@@ -1,9 +1,15 @@
 <svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="120" fill="#ffffff"/>
-  <text x="20" y="60"
-        font-size="32"
+  <rect width="800" height="120" fill="white"/>
+  <line x1="0" y1="90" x2="800" y2="90" stroke="black" stroke-width="2"/>
+
+  <rect x="708" y="18" width="4" height="72" fill="black"/>
+  <rect x="708" y="18" width="20" height="4" fill="black"/>
+
+  <text x="20" y="40"
+        font-size="24"
         font-family="monospace"
-        fill="#000000">
+        font-weight="bold"
+        fill="black">
     vjRider
   </text>
 </svg>
