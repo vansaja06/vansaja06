@@ -35,6 +35,8 @@ System Architecture, Database Design, and REST API Development.
 
 <br><br>
 
-<img src="./assets/vjrider.svg" width="100%">
+<p align="center">
+  <img src="./assets/vjrider.svg">
+</p>
 
 </div>
