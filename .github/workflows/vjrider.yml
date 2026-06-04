@@ -9,73 +9,141 @@ permissions:
   contents: write
 
 jobs:
-  build-banner:
+  banner:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Create Frames
-        run: |
-          mkdir -p assets/frames
-
-          # Frame 1
-          cat > assets/frames/frame1.svg <<'EOF'
-          <svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
-            <rect width="800" height="120" fill="white"/>
-            <line x1="0" y1="90" x2="800" y2="90" stroke="black" stroke-width="2"/>
-            <rect x="50" y="60" width="50" height="20" fill="black"/>
-            <rect x="720" y="15" width="4" height="75" fill="black"/>
-          </svg>
-          EOF
-
-          # Frame 2
-          sed 's/x="50"/x="250"/' assets/frames/frame1.svg > assets/frames/frame2.svg
-
-          # Frame 3
-          sed 's/x="50"/x="500"/' assets/frames/frame1.svg > assets/frames/frame3.svg
-
-          # Frame 4 (crash)
-          cat > assets/frames/frame4.svg <<'EOF'
-          <svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
-            <rect width="800" height="120" fill="white"/>
-            <line x1="0" y1="90" x2="800" y2="90" stroke="black" stroke-width="2"/>
-            <rect x="650" y="60" width="50" height="20" fill="black"/>
-            <rect x="700" y="40" width="8" height="8" fill="black"/>
-            <rect x="712" y="50" width="8" height="8" fill="black"/>
-            <rect x="720" y="15" width="4" height="75" fill="black"/>
-          </svg>
-          EOF
-
-          # Frame 5 (text muncul)
-          cat > assets/frames/frame5.svg <<'EOF'
-          <svg width="800" height="120" xmlns="http://www.w3.org/2000/svg">
-            <rect width="800" height="120" fill="white"/>
-            <line x1="0" y1="90" x2="800" y2="90" stroke="black" stroke-width="2"/>
-            <text x="240" y="50"
-                  font-family="monospace"
-                  font-size="30"
-                  font-weight="bold">
-              Back-End Dev
-            </text>
-          </svg>
-          EOF
-
-      - name: Convert SVG to PNG
-        run: |
-          mkdir -p assets/png
-          for f in assets/frames/*.svg; do
-            convert "$f" "${f%.svg}.png"
-          done
+      - name: Install Pillow
+        run: pip install pillow
 
       - name: Generate GIF
         run: |
-          convert -delay 40 -loop 0 assets/frames/*.png assets/banner.gif
+          python << 'PY'
+          from PIL import Image, ImageDraw, ImageFont
+
+          W,H = 800,120
+          frames=[]
+
+          def draw_car(draw,x):
+              draw.rectangle((x+8,55,x+54,67),fill="black")
+              draw.rectangle((x+18,45,x+42,55),fill="black")
+
+              draw.rectangle((x+22,48,x+28,52),fill="white")
+              draw.rectangle((x+32,48,x+38,52),fill="white")
+
+              draw.rectangle((x,70,x+12,82),fill="black")
+              draw.rectangle((x+50,70,x+62,82),fill="black")
+
+          # Jalan
+          def road(draw):
+              draw.line((0,90,800,90),fill="black",width=2)
+
+          # Tiang
+          def lamp(draw):
+              draw.rectangle((720,15,724,90),fill="black")
+              draw.rectangle((720,15,740,19),fill="black")
+
+          # 40 frame mobil jalan
+          for i in range(40):
+              img=Image.new("RGB",(W,H),"white")
+              d=ImageDraw.Draw(img)
+
+              road(d)
+              lamp(d)
+
+              x=int(i*16)
+              draw_car(d,x)
+
+              frames.append(img)
+
+          # 8 frame tabrakan
+          for i in range(8):
+              img=Image.new("RGB",(W,H),"white")
+              d=ImageDraw.Draw(img)
+
+              road(d)
+              lamp(d)
+
+              draw_car(d,650)
+
+              debris=[
+                  (700,45),
+                  (712,38),
+                  (722,48),
+                  (706,58),
+                  (718,66),
+                  (730,55),
+                  (690,60)
+              ]
+
+              for px,py in debris[:3+i]:
+                  d.rectangle((px,py,px+8,py+8),fill="black")
+
+              frames.append(img)
+
+          # 20 frame diam setelah tabrak
+          for i in range(20):
+              img=Image.new("RGB",(W,H),"white")
+              d=ImageDraw.Draw(img)
+
+              road(d)
+              lamp(d)
+              draw_car(d,650)
+
+              frames.append(img)
+
+          # 25 frame text muncul
+          for i in range(25):
+              img=Image.new("RGB",(W,H),"white")
+              d=ImageDraw.Draw(img)
+
+              road(d)
+              lamp(d)
+              draw_car(d,650)
+
+              text="Back-End Dev"
+
+              try:
+                  font=ImageFont.truetype(
+                      "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
+                      28
+                  )
+              except:
+                  font=None
+
+              chars=int(len(text)*(i+1)/25)
+
+              d.text(
+                  (250,35),
+                  text[:chars],
+                  fill="black",
+                  font=font
+              )
+
+              frames.append(img)
+
+          # Diam 40 frame
+          for i in range(40):
+              img=frames[-1].copy()
+              frames.append(img)
+
+          frames[0].save(
+              "assets/banner.gif",
+              save_all=True,
+              append_images=frames[1:],
+              duration=80,
+              loop=0
+          )
+          PY
 
       - name: Commit GIF
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update animated banner"
+          commit_message: "Update banner gif"
