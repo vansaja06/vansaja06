@@ -33,4 +33,8 @@ System Architecture, Database Design, and REST API Development.
   <img src="https://skillicons.dev/icons?i=github" />
 </a>
 
+<br><br>
+
+<img src="./assets/vjrider.svg" width="100%">
+
 </div>
