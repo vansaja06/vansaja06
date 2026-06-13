@@ -27,7 +27,7 @@ System Architecture, Database Design, and REST API Development.
 
 <a href="https://instagram.com/ev_vaj">
   <img src="https://skillicons.dev/icons?i=instagram" />
-</a>
+</a>  
 
 <a href="https://github.com/vansaja06">
   <img src="https://skillicons.dev/icons?i=github" />
