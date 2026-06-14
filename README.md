@@ -1,6 +1,6 @@
 <div align="center">
 
-# EV_VAJ
+# ev_vaj
 
 ![Banner](img/banner.png)
 
